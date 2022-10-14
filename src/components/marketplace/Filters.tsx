@@ -1,11 +1,14 @@
 //Filtros para busqueda de productos
 
+import { useState, ChangeEvent } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 
-export const Filters = (props: any) => {
-  function onFilterChanged(event: any) {
-    props.filterSelected(event.target.value);
-  }
+export const Filters = () => {
+  const [ubication, setUbication] = useState<string | null>(null);
+
+  const handleUbicationChange = (ubication: string) => {
+    console.log(ubication);
+  };
 
   return (
     <div className="">
@@ -13,8 +16,10 @@ export const Filters = (props: any) => {
 
       <div className="flex gap-6">
         <h4>Ubicación</h4>
-        <select className="w-full border rounded-lg" onChange={onFilterChanged}>
-          <option value="all"></option>
+        <select
+          className="w-full border rounded-lg"
+          onChange={e => handleUbicationChange(e.target.value)}>
+          <option value=""></option>
           <option value="Melipilla">Melipilla</option>
           <option value="Santiago">Santiago</option>
         </select>
