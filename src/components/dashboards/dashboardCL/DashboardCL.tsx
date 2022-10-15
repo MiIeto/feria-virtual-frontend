@@ -1,6 +1,13 @@
+import { useState } from 'react';
+import { useUsers } from '../../../hooks/useUsers';
 import { IProductData } from '../../../interfaces/marketplace.interface';
-import { ProductCard } from '../../marketplace/ProductCard';
-import { SearchBar } from '../../marketplace/SearchBar';
+import {
+  ExtendedCard,
+  Filters,
+  FullCard,
+  ProductCard,
+  SearchBar
+} from '../../marketplace';
 
 const data: IProductData[] = [
   {
@@ -28,7 +35,10 @@ const data: IProductData[] = [
     ubication: 'Melipilla'
   }
 ];
-export const Principal = () => {
+
+const DashboardCL = () => {
+  const { logout, user } = useUsers();
+  
   return (
     <div>
       <div className="my-10">
@@ -45,3 +55,5 @@ export const Principal = () => {
     </div>
   );
 };
+
+export default DashboardCL;
